@@ -3,7 +3,7 @@ import { NastFactory } from "./nast/app/app";
 
 function Bootsrap() {
   const app = NastFactory.craete(AppModule);
-  app.listen(3001);
+  app.listen(3000);
 }
 
 Bootsrap();

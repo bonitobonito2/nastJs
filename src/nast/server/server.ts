@@ -24,5 +24,9 @@ export class Server {
         handler(req, res);
       });
     }
+
+    console.log(
+      `nast container has successfully processed {method:${method} route:${route}} \n`
+    );
   }
 }

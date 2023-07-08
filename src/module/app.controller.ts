@@ -2,16 +2,14 @@ import { Controller } from "../nast/decorators/controller.decorator";
 import { Get } from "../nast/decorators/get.decorator";
 import { Post } from "../nast/decorators/post.decorator";
 import { AppService } from "./app.service";
-import { Inject } from "../nast/decorators/inject.decorator";
 import { NastRequest, NastResponse } from "../nast/types/types";
+import { WierdService } from "./wierd.service";
 
-@Controller("/app")
+@Controller("")
 export class AppController {
   public hello: number = 10;
 
-  @Inject("AppService")
-  private appService: AppService;
-  constructor() {}
+  constructor(private appService: AppService) {}
 
   @Get("/kargi")
   hola(req: NastRequest, res: NastResponse) {

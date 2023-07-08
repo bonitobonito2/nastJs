@@ -1,4 +1,5 @@
 import { Container } from "../containers/mainContainer";
+import { ControllerInterface } from "../interfaces/controller.interface";
 import { ModuleInterface } from "../interfaces/module.interface";
 
 import { Server } from "../server/server";
@@ -16,7 +17,7 @@ export class NastFactory {
       NastFactory.instance = new NastFactory();
     }
     NastFactory.instance.appModule = object;
-    NastFactory.instance.setupRoutes();
+    NastFactory.instance.setUpModules();
     return NastFactory.instance;
   }
 
@@ -42,25 +43,40 @@ export class NastFactory {
   }
 
   private checkProviders(module?: ModuleInterface) {
-    const providers = module?.provider;
-
     const controllers = module?.controller;
     controllers?.forEach((controller) => {
-      const concreteControlelr = this.container.controllers.get(
-        controller.name
-      )?.controller;
-      providers?.forEach((data) => {
-        const prvd = this.container.providers.get(data.name);
-        console.log(prvd, concreteControlelr);
-      });
+      const concreteController: { [key: string]: any } | undefined =
+        this.container.controllers.get(controller.name)?.controller;
+
+      for (const key in concreteController) {
+        if (concreteController[key] == undefined) {
+          const provider = this.container.providers.get(key);
+          if (provider == undefined)
+            throw Error(
+              "Is " +
+                key +
+                "a real provider?  are you sure it is part of module?"
+            );
+          concreteController[key] = this.container.providers.get(key);
+          console.log(`{${key}} is valid nastjs provider. \n`);
+        }
+      }
     });
-    // console.log(controllers);
   }
 
-  private setupRoutes() {
-    const module = this.container.modules.get(this.appModule.name);
+  private setUpConcreteModule(moduleName: string) {
+    const module = this.container.modules.get(moduleName);
     this.checkProviders(module);
     this.searchRoutesAndSetUp(module?.controller);
+    if (module?.imports) {
+      module.imports.map((mdl) => {
+        this.setUpConcreteModule(mdl.name);
+        console.log(`{${mdl.name}} has been successfully processed. \n`);
+      });
+    }
+  }
+  private setUpModules() {
+    this.setUpConcreteModule(this.appModule.name);
   }
 
   public listen(port: number) {

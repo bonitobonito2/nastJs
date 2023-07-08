@@ -1,6 +1,6 @@
 import { Injectable } from "../nast/decorators/injectable.decorator";
 
-@Injectable()
+@Injectable("appService")
 export class AppService {
   public smh() {
     console.log("smh");
