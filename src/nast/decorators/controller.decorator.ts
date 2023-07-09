@@ -9,6 +9,10 @@ export function Controller(route: string = "") {
       if (instance[key] == undefined) {
       }
     }
-    container.setController(constructor.name, instance, route);
+    container.setController(
+      constructor.name,
+      instance,
+      route[0] == "/" ? route : route == "" ? "" : "/" + route
+    );
   };
 }

@@ -1,11 +1,11 @@
 import { Module } from "../../nast/decorators/module.decorator";
 import { UserController } from "./user.controller";
-import { UsersService } from "./user.service";
+import { UserService } from "./user.service";
 
 @Module({
   imports: [],
   exports: [],
-  provider: [UsersService],
+  provider: [UserService],
   controller: [UserController],
 })
 export class UsersModule {}

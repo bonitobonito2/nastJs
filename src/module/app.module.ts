@@ -1,14 +1,13 @@
 import { Module } from "../nast/decorators/module.decorator";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { PeopleModule } from "./people/people.module";
 import { UsersModule } from "./user/user.module";
 import { WierdService } from "./wierd.service";
 
 @Module({
-  provider: [AppService],
+  provider: [AppService, WierdService],
   controller: [AppController],
   exports: [],
-  imports: [UsersModule, PeopleModule],
+  imports: [UsersModule],
 })
 export class AppModule {}

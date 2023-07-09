@@ -1,7 +1,7 @@
 import { Injectable } from "../../nast/decorators/injectable.decorator";
 
-@Injectable("usersService")
-export class UsersService {
+@Injectable("userService")
+export class UserService {
   public getuser() {
     console.log("getting the user");
   }
