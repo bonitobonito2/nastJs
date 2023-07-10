@@ -32,7 +32,13 @@ export class NastFactory {
     controllers?.forEach((data) => {
       const controlerExsists = this.container.controllers.get(data.name);
       if (!controlerExsists) {
-        throw Error("is " + data.name + " a real controller?");
+        throw Error(
+          chalk.red(
+            "is " +
+              data.name +
+              " a real controller?\nMake sure to use @Controller() decorator"
+          )
+        );
       }
       const datas = this.container.handlers.get(data.name);
 

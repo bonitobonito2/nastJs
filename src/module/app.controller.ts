@@ -5,7 +5,7 @@ import { AppService } from "./app.service";
 import { NastRequest } from "../nast/types/types";
 import { WierdService } from "./wierd.service";
 
-@Controller()
+@Controller("api")
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
@@ -14,7 +14,7 @@ export class AppController {
     return { suc: true };
   }
 
-  @Post()
+  @Post("/checklife")
   magaria(req: NastRequest) {
     this.appService.smh();
     return { hola: true };

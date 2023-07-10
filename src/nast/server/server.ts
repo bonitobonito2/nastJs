@@ -22,19 +22,23 @@ export class Server {
 
   public setRoute(route: string, handler: Function, method: string) {
     if (method == "get") {
-      this.server.get(route, (req, res) => {
-        res.send(handler(req));
+      this.server.get(route, async (req, res) => {
+        const result = JSON.stringify(await handler(req));
+        res.send(result);
       });
     }
 
     if (method == "post") {
-      this.server.post(route, (req, res) => {
-        res.send(handler(req));
+      this.server.post(route, async (req, res) => {
+        const result = JSON.stringify(await handler(req));
+        res.send(result);
       });
     }
 
     console.log(
-      chalk.green(`Successfully processed {method:${method}, route:${route}}.`)
+      chalk.green(
+        `Successfully processed {method:${method}, route:{${route}}}.`
+      )
     );
   }
 }
