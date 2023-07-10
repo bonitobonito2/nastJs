@@ -24,16 +24,10 @@ cd nastjs
 npm install
 ```
 
-3. Build the project:
+3. Run project:
 
 ```bash
-npm run build
-```
-
-4. Start the NastJS application:
-
-```bash
-npm run start
+npm run start:dev
 ```
 
 By default, the application runs on `http://localhost:3000`.
