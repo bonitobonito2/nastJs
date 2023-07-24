@@ -2,34 +2,6 @@
 
 NastJS is a lightweight framework inspired by NestJS, designed to simplify building scalable and modular Node.js applications.
 
-## Installation
-
-To install NastJS, clone this repository to your local machine using the following command:
-
-```bash
-git clone https://github.com/your-username/nastjs.git
-```
-
-## Getting Started
-
-1. Navigate to the `nastjs` directory:
-
-```bash
-cd nastjs
-```
-
-2. Install the dependencies:
-
-```bash
-npm install
-```
-
-3. Run project:
-
-```bash
-npm run start:dev
-```
-
 By default, the application runs on `http://localhost:3000`.
 
 ## Creating Modules, Controllers, and Services

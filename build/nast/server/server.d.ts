@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import { Request } from "express";
 /**
  * Interface for route handler functions.
  * @param req The Express Request object.
@@ -25,7 +25,7 @@ export declare class Server {
      * Adds middleware to the Express server.
      * @param handler The middleware handler function.
      */
-    addMiddleware(handler: (req: Request, res: Response, next: NextFunction) => void): void;
+    addMiddleware(handler: Function): void;
     /**
      * Sets up a route on the Express server.
      * @param route The URL route to handle.

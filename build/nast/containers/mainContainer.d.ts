@@ -58,7 +58,7 @@ export declare class Container {
         route: string;
         fnc: Function;
         method: string;
-    }[] | undefined;
+    }[];
     /**
      * Sets a handler in the container for the given key.
      * @param handlerName The name of the handler.

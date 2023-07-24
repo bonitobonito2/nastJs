@@ -1,11 +1,15 @@
 {
-  "name": "nast",
-  "version": "1.0.0",
-  "description": "",
+  "name": "nast.ge",
+  "version": "1.0.2",
+  "description": "nast.ge, dp library like nest.js",
   "main": "./src/index.ts",
   "type": "module",
   "scripts": {
     "start:dev": "tsx --watch ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bonitobonito2/nastJs.git"
   },
   "author": "Zaal Tsagareli",
   "license": "ISC",

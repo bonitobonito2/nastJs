@@ -1,7 +1,9 @@
 import { Container } from "../containers/mainContainer";
+import { ControllerInterface } from "../interfaces/controller.interface";
 import chalk from "chalk";
 import { ModuleInterface } from "../interfaces/module.interface";
 import { Server } from "../server/server";
+import { NastRequest, NastResponse } from "../types/types";
 
 const log = console.log;
 chalk.level = 1;

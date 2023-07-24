@@ -38,9 +38,7 @@ export class Server {
    * Adds middleware to the Express server.
    * @param handler The middleware handler function.
    */
-  public addMiddleware(
-    handler: (req: Request, res: Response, next: NextFunction) => void
-  ) {
+  public addMiddleware(handler: Function) {
     this.server.use((req, res, next) => {
       handler(req, res, next);
     });
