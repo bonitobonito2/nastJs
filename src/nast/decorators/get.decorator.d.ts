@@ -1,0 +1,14 @@
+import { Container } from "../containers/mainContainer";
+
+/**
+ * Decorator function to register a route handler for HTTP GET requests in the container.
+ * @param value The URL route for the handler (optional). Defaults to "/" if not provided.
+ * @returns The decorator function that registers the handler in the container.
+ */
+export function Get(
+  value?: string
+): (
+  target: Object,
+  key: string,
+  descriptor: PropertyDescriptor
+) => PropertyDescriptor;
